@@ -2,6 +2,8 @@
 
 # Math learning program
 import random
+import math
+import turtle
 
 print("Hello Dear User!")
 name = input("Please, enter your name: ")
@@ -30,9 +32,9 @@ while user_try < num_of_ex:
     if action == 1:
         answer = first + second
         try:
-            user_input = int(input("What is result "
-                                   "of %d + %d :" % (first, second)))
-            if user_input == answer:
+            user_in = int(input("What is result "
+                                "of %d + %d :" % (first, second)))
+            if user_in == answer:
                 print("Good!")
             else:
                 print("Not right")
@@ -43,9 +45,9 @@ while user_try < num_of_ex:
     elif action == 2:
         answer = first - second
         try:
-            user_input = int(input("What is result "
-                                   "of %d - %d :" % (first, second)))
-            if user_input == answer:
+            user_in = int(input("What is result "
+                                "of %d - %d :" % (first, second)))
+            if user_in == answer:
                 print("Good!")
             else:
                 print("Not right")
@@ -56,9 +58,9 @@ while user_try < num_of_ex:
     else:
         answer = first * second
         try:
-            user_input = int(input("What is result "
-                                   "of %d * %d :" % (first, second)))
-            if user_input == answer:
+            user_in = int(input("What is result "
+                                "of %d * %d :" % (first, second)))
+            if user_in == answer:
                 print("Good!")
             else:
                 print("Not right")
@@ -70,4 +72,29 @@ while user_try < num_of_ex:
 print()
 print("Good job! Bye!")
 print()
-input("Press enter to exit.")
+input("Press enter to see a surprise.")
+
+radius = 100
+petals = num_of_ex
+
+
+def draw_arc(b, r):
+    c = 2*math.pi*r
+    ca = c/(360/60)
+    n = int(ca/3)+1
+    l = ca/n
+    for i in range(n):
+        b.fd(l)
+        b.lt(360/(n*6))
+
+
+def draw_petal(b, r):
+    draw_arc(b, r)
+    b.lt(180-60)
+    draw_arc(b, r)
+    b.rt(360/petals-30)
+bob = turtle.Turtle()
+
+for i in range(petals):
+    draw_petal(bob, radius)
+    bob.lt(360/4)
