@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-
 # Math learning program
 import random
 import math
 import turtle
+import matplotlib.pyplot as plt
 
 print("Hello Dear User!")
 name = input("Please, enter your name: ")
@@ -24,6 +24,7 @@ while True:
         print("That's not an int!")
 
 user_try = 0
+solved_size = 0
 while user_try < num_of_ex:
     first = random.randint(1, 11)  # generate number between 1 and 100
     second = random.randint(1, 11)
@@ -36,6 +37,7 @@ while user_try < num_of_ex:
                                 "of %d + %d :" % (first, second)))
             if user_in == answer:
                 print("Good!")
+                solved_size += 1
             else:
                 print("Not right")
 
@@ -49,6 +51,7 @@ while user_try < num_of_ex:
                                 "of %d - %d :" % (first, second)))
             if user_in == answer:
                 print("Good!")
+                solved_size += 1
             else:
                 print("Not right")
 
@@ -62,12 +65,24 @@ while user_try < num_of_ex:
                                 "of %d * %d :" % (first, second)))
             if user_in == answer:
                 print("Good!")
+                solved_size += 1
             else:
                 print("Not right")
 
         except ValueError:
             print("That's not an int!")
     user_try += 1
+
+# make pi chart
+labels = 'Unsolved...', 'Done!'
+solved_percent = int(solved_size * 100 / user_try)
+unsolved_percent = 100 - solved_percent
+sizes = [unsolved_percent, solved_percent]
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes, labels=labels, autopct='%1.1f%%',
+        shadow=True, startangle=90)
+ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+plt.show()
 
 print()
 print("Good job! Bye!")
