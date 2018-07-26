@@ -5,5 +5,9 @@ cache: pip
 install:
   - pip install -r requirements.txt
   - pip install matplotlib.pyplot
+virtualenv:
+  system_site_packages: true
+before_install:
+ - sudo apt-get install -qq python-numpy python-scipy
 script:
   - python math_project1.py
