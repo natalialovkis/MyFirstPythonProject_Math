@@ -4,6 +4,6 @@ python:
 cache: pip
 install:
   - pip install -r requirements.txt
-  - pip install matplotlib
+  - pip install matplotlib.pyplot
 script:
   - python math_project1.py
