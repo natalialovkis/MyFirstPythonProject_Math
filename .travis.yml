@@ -2,12 +2,12 @@ language: python
 python:
   - "3.6"
 cache: pip
+before_install:
+ - sudo apt-get install -qq python-numpy python-scipy
+virtualenv:
+  system_site_packages: true
 install:
   - pip install -r requirements.txt
   - pip install matplotlib
-virtualenv:
-  system_site_packages: true
-before_install:
- - sudo apt-get install -qq python-numpy python-scipy
 script:
   - python math_project1.py
