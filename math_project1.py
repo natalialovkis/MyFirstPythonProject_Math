@@ -4,13 +4,14 @@ import random
 import math
 import turtle
 import matplotlib.pyplot as plt
+from name_class import NameClass
 
 print("Hello Dear User!")
-name = input("Please, enter your name: ")
-print()
-print("Hello %s! Let`s learn the Math!" % name)
-print()
+name = str(input("Please, enter your name: "))
+name2 = str(input("Please, enter your last name: "))
 
+my_user = NameClass(name, name2)
+print(my_user.say_hello())
 
 num_of_ex = 0
 while True:
