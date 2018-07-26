@@ -3,7 +3,8 @@ python:
   - "3.6"
 cache: pip
 install:
-  - pip install -r requirements.txt
   - pip install matplotlib
+  - pip install -r requirements.txt
+
 script:
   - python math_project1.py
